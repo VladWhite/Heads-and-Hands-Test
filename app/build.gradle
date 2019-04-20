@@ -62,4 +62,7 @@ dependencies {
     annotationProcessor "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
     testImplementation "androidx.room:room-testing:$room_version"
+    //Material Design
+    def designVersion = "1.0.0"
+    implementation "com.google.android.material:material:$designVersion"
 }

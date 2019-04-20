@@ -3,4 +3,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="auth_title">Авторизация</string>
+    <string name="button_create_user">Создать</string>
+    <string name="field_email">Электронная почта</string>
+    <string name="field_password">Пароль</string>
 </resources>
