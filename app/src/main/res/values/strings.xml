@@ -3,4 +3,18 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="auth_title">Авторизация</string>
+    <string name="button_create_user">Создать</string>
+    <string name="field_email">Электронная почта</string>
+    <string name="field_password">Пароль</string>
+    <string name="error_password">Неправильный пароль!</string>
+    <string name="error_email">Неправильная почта!</string>
+    <string name="dialog_title_password">Какой пароль выбрать?</string>
+    <string name="dialog_password_descr">Пароль - минимум 6 символов, должен обязательно содержать минимум 1 строчную
+        букву, 1 заглавную, и 1 цифру.
+    </string>
+    <string name="weather_title">Погодка на сегодня в Лондоне</string>
+    <string name="dialog_password_button_positive">Понятно</string>
+    <string name="snackbar_action">Закрыть</string>
+    <string name="error_get_data">Ошибка получения данных:(</string>
 </resources>
