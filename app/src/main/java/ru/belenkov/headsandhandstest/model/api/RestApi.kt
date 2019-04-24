@@ -9,7 +9,6 @@ import ru.belenkov.headsandhandstest.util.DEFAULT_CITY
 import ru.belenkov.headsandhandstest.util.WEATHER_KEY
 
 interface RestApi {
-
     @GET("/data/2.5/weather")
     fun getWeather(
         @Query("q") cityName: String = DEFAULT_CITY,

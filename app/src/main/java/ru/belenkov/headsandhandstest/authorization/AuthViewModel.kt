@@ -1,23 +1,18 @@
 package ru.belenkov.headsandhandstest.authorization
 
-import android.app.Application
 import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import ru.belenkov.headsandhandstest.model.dto.Weather
 import ru.belenkov.headsandhandstest.model.dto.WeatherError
-
 import ru.belenkov.headsandhandstest.model.repository.RestRepository
 import ru.belenkov.headsandhandstest.util.EMAIL_REGEX
 import ru.belenkov.headsandhandstest.util.PASSWORD_REGEX
 import ru.belenkov.headsandhandstest.util.SingleLiveEvent
 import timber.log.Timber
-import java.lang.Exception
 
 class AuthViewModel : ViewModel() {
 
@@ -49,7 +44,6 @@ class AuthViewModel : ViewModel() {
     }
 
     fun login() {
-
         GlobalScope.launch {
             try {
                 loginButtonEnabled.set(false)
