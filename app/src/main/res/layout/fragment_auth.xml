@@ -82,14 +82,15 @@
                                                app:layout_constraintHorizontal_bias="0.0"
                                                app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             >
-                <androidx.appcompat.widget.AppCompatImageButton android:layout_width="24dp"
-                                                                android:layout_height="24dp"
-                                                                android:src="@drawable/ic_arrow_back"
+                <androidx.appcompat.widget.AppCompatImageButton android:layout_width="wrap_content"
+                                                                android:layout_height="wrap_content"
+                                                                android:src="@drawable/ic_arrow_left"
                                                                 android:background="?selectableItemBackgroundBorderless"
                                                                 android:padding="8dp"
                                                                 tools:layout_editor_absoluteY="8dp"
                                                                 tools:layout_editor_absoluteX="16dp"
-                                                                android:scaleType="center"/>
+                                                                android:scaleType="fitCenter"
+                                                                android:tint="@color/colorDarkSky"/>
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
