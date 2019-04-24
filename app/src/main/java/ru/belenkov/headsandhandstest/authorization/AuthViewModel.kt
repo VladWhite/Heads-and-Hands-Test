@@ -4,6 +4,7 @@ import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import ru.belenkov.headsandhandstest.model.dto.Weather
@@ -51,7 +52,7 @@ class AuthViewModel : ViewModel() {
     }
 
     fun login() {
-        GlobalScope.launch {
+        GlobalScope.launch(Dispatchers.Main) {
             try {
                 loginButtonEnabled?.set(false)
                 val weather = RestRepository.getWeather()
