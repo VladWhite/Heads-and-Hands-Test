@@ -16,44 +16,51 @@ import timber.log.Timber
 
 class AuthViewModel : ViewModel() {
 
-    var emailValue: ObservableField<String> = ObservableField("")
-    var passwordValue: ObservableField<String> = ObservableField("")
+    var emailValue: ObservableField<String>? = ObservableField("")
+    var passwordValue: ObservableField<String>? = ObservableField("")
 
-    var authIsValid: ObservableBoolean = ObservableBoolean(false)
-    var loginButtonEnabled: ObservableBoolean = ObservableBoolean(true)
+    var authIsValid: ObservableBoolean? = ObservableBoolean(false)
+    var loginButtonEnabled: ObservableBoolean? = ObservableBoolean(true)
 
-    var emailIsValid: MutableLiveData<Boolean> = MutableLiveData()
-    var passwordIsValid: MutableLiveData<Boolean> = MutableLiveData()
+    var emailIsValid: MutableLiveData<Boolean>? = MutableLiveData()
+    var passwordIsValid: MutableLiveData<Boolean>? = MutableLiveData()
 
-    var weatherData: SingleLiveEvent<Weather> = SingleLiveEvent()
-    var weatherError: SingleLiveEvent<WeatherError> = SingleLiveEvent()
+    var weatherData: SingleLiveEvent<Weather>? = SingleLiveEvent()
+    var weatherError: SingleLiveEvent<WeatherError>? = SingleLiveEvent()
 
     init {
-        passwordIsValid.value = false
-        emailIsValid.value = false
+        emailValue = ObservableField("")
+        passwordValue = ObservableField("")
+        authIsValid = ObservableBoolean(false)
+        loginButtonEnabled = ObservableBoolean(true)
+        emailIsValid = MutableLiveData()
+        passwordIsValid = MutableLiveData()
+
+        passwordIsValid?.value = false
+        emailIsValid?.value = false
     }
 
     fun validateEmail(text: CharSequence, start: Int, befor: Int, count: Int) {
-        emailIsValid.value = EMAIL_REGEX.toRegex().matches(text.toString())
-        authIsValid.set(emailIsValid.value!! && passwordIsValid.value!!)
+        emailIsValid?.value = EMAIL_REGEX.toRegex().matches(text.toString())
+        authIsValid?.set(emailIsValid?.value!! && passwordIsValid?.value!!)
     }
 
     fun validatePassword(text: CharSequence, start: Int, befor: Int, count: Int) {
-        passwordIsValid.value = PASSWORD_REGEX.toRegex().matches(text.toString())
-        authIsValid.set(emailIsValid.value!! && passwordIsValid.value!!)
+        passwordIsValid?.value = PASSWORD_REGEX.toRegex().matches(text.toString())
+        authIsValid?.set(emailIsValid?.value!! && passwordIsValid?.value!!)
     }
 
     fun login() {
         GlobalScope.launch {
             try {
-                loginButtonEnabled.set(false)
+                loginButtonEnabled?.set(false)
                 val weather = RestRepository.getWeather()
-                weatherData.value = weather
-                loginButtonEnabled.set(true)
+                weatherData?.value = weather
+                loginButtonEnabled?.set(true)
             } catch (e: Exception) {
-                weatherError.value = WeatherError(e.localizedMessage)
+                weatherError?.value = WeatherError(e.localizedMessage)
                 Timber.e("Something wrong ${e.message}")
-                loginButtonEnabled.set(true)
+                loginButtonEnabled?.set(true)
             }
         }
     }
